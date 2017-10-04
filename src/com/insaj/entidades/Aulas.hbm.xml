@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Apr 19, 2017 9:28:25 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="com.insaj.entidades.Aulas" table="aulas" catalog="insaj">
+        <id name="idAula" type="java.lang.Integer">
+            <column name="idAula" />
+            <generator class="identity"></generator>
+        </id>
+        <property name="numero" type="string">
+            <column name="Numero" length="20" not-null="true" />
+        </property>
+        <property name="capacidad" type="int">
+            <column name="Capacidad" not-null="true" />
+        </property>
+        <set name="claseses" table="clases" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="idAula" not-null="true" />
+            </key>
+            <one-to-many class="com.insaj.entidades.Clases" />
+        </set>
+    </class>
+</hibernate-mapping>

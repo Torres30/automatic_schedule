@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Apr 19, 2017 9:28:25 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="com.insaj.entidades.Detallehorario" table="detallehorario" catalog="insaj">
+        <composite-id name="id" class="com.insaj.entidades.DetallehorarioId">
+            <key-property name="idHorario" type="java.lang.Integer">
+                <column name="idHorario" />
+            </key-property>
+            <key-property name="idClase" type="java.lang.Integer">
+                <column name="idClase" />
+            </key-property>
+        </composite-id>
+        <many-to-one name="clases" class="com.insaj.entidades.Clases" update="false" insert="false" fetch="select">
+            <column name="idClase" />
+        </many-to-one>
+        <many-to-one name="horarios" class="com.insaj.entidades.Horarios" update="false" insert="false" fetch="select">
+            <column name="idHorario" />
+        </many-to-one>
+    </class>
+</hibernate-mapping>

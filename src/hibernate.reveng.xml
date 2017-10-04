@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-reverse-engineering PUBLIC "-//Hibernate/Hibernate Reverse Engineering DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-reverse-engineering-3.0.dtd">
+<hibernate-reverse-engineering>
+  <schema-selection match-catalog="insaj"/>
+  <table-filter match-name="materiasporseccion"/>
+  <table-filter match-name="docentes"/>
+  <table-filter match-name="roles"/>
+  <table-filter match-name="secciones"/>
+  <table-filter match-name="clases"/>
+  <table-filter match-name="aulas"/>
+  <table-filter match-name="usuarios"/>
+  <table-filter match-name="materias"/>
+  <table-filter match-name="detalledocentematerias"/>
+  <table-filter match-name="detallehorario"/>
+  <table-filter match-name="horas"/>
+  <table-filter match-name="horarios"/>
+</hibernate-reverse-engineering>

@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Apr 19, 2017 9:28:25 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="com.insaj.entidades.Materiasporseccion" table="materiasporseccion" catalog="insaj">
+        <composite-id name="id" class="com.insaj.entidades.MateriasporseccionId">
+            <key-property name="idMateria" type="int">
+                <column name="idMateria" />
+            </key-property>
+            <key-property name="idSeccion" type="int">
+                <column name="idSeccion" />
+            </key-property>
+        </composite-id>
+        <many-to-one name="materias" class="com.insaj.entidades.Materias" update="false" insert="false" fetch="select">
+            <column name="idMateria" not-null="true" />
+        </many-to-one>
+        <many-to-one name="secciones" class="com.insaj.entidades.Secciones" update="false" insert="false" fetch="select">
+            <column name="idSeccion" not-null="true" />
+        </many-to-one>
+    </class>
+</hibernate-mapping>

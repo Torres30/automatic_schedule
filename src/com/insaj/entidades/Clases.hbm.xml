@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Apr 19, 2017 9:28:25 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="com.insaj.entidades.Clases" table="clases" catalog="insaj">
+        <id name="idClase" type="java.lang.Integer">
+            <column name="idClase" />
+            <generator class="identity"></generator>
+        </id>
+        <many-to-one name="aulas" class="com.insaj.entidades.Aulas" fetch="select">
+            <column name="idAula" not-null="true" />
+        </many-to-one>
+        <many-to-one name="docentes" class="com.insaj.entidades.Docentes" fetch="select">
+            <column name="idDocente" not-null="true" />
+        </many-to-one>
+        <many-to-one name="horas" class="com.insaj.entidades.Horas" fetch="select" cascade="all">
+            <column name="idHora" not-null="true" />
+        </many-to-one>
+        <many-to-one name="secciones" class="com.insaj.entidades.Secciones" fetch="select">
+            <column name="idSeccion" not-null="true" />
+        </many-to-one>
+        <many-to-one name="materias" class="com.insaj.entidades.Materias" fetch="select">
+            <column name="idMateria" not-null="true" />
+        </many-to-one>
+        <set name="Horarios" table="detallehorario" cascade="all" lazy="true" fetch="select">
+            <key>
+                <column name="idClase" />
+            </key>
+            <many-to-many column="idHorario" class="com.insaj.entidades.Horarios" />
+        </set>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Apr 19, 2017 9:28:25 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="com.insaj.entidades.Horas" table="horas" catalog="insaj">
+        <id name="idHora" type="java.lang.Integer">
+            <column name="idHora" />
+            <generator class="identity"></generator>
+        </id>
+        <property name="hora" type="string">
+            <column name="Hora" length="45" not-null="true" />
+        </property>
+        <property name="turno" type="string">
+            <column name="Turno" length="45" not-null="true" />
+        </property>
+        <property name="dias" type="java.lang.Integer">
+            <column name="Dias"  />
+        </property>
+        <set name="claseses" table="clases" cascade="all" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="idHora" not-null="true" />
+            </key>
+            <one-to-many class="com.insaj.entidades.Clases" />
+        </set>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Apr 19, 2017 9:28:25 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="com.insaj.entidades.Detalledocentematerias" table="detalledocentematerias" catalog="insaj" optimistic-lock="version">
+        <composite-id name="id" class="com.insaj.entidades.DetalledocentemateriasId">
+            <key-property name="idMateria" type="int">
+                <column name="idMateria" />
+            </key-property>
+            <key-property name="idDocente" type="int">
+                <column name="idDocente" />
+            </key-property>
+        </composite-id>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,48 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Apr 19, 2017 9:28:25 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="com.insaj.entidades.Docentes" table="docentes" catalog="insaj">
+        <id name="idDocente" type="java.lang.Integer">
+            <column name="idDocente" />
+            <generator class="identity"></generator>
+        </id>
+        <property name="nombres" type="string">
+            <column name="Nombres" length="45" />
+        </property>
+        <property name="apellidos" type="string">
+            <column name="Apellidos" length="45" />
+        </property>
+        <property name="contrato" type="string">
+            <column name="Contrato" length="45" />
+        </property>
+        <property name="numHorasPlanta" type="java.lang.Integer">
+            <column name="NumHorasPlanta" />
+        </property>
+        <property name="numHorasClases" type="java.lang.Integer">
+            <column name="NumHorasClases" />
+        </property>
+        <property name="r" type="java.lang.Integer">
+            <column name="R" />
+        </property>
+        <property name="g" type="java.lang.Integer">
+            <column name="G" />
+        </property>
+        <property name="b" type="java.lang.Integer">
+            <column name="B" />
+        </property>
+        <set name="Materias" table="Detalledocentematerias" cascade="all" lazy="true" fetch="select">
+            <key>
+                <column name="idDocente" not-null="true" />
+            </key>
+            <many-to-many  column="idMateria" class="com.insaj.entidades.Materias"/>
+        </set>
+        <set name="claseses" table="clases" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="idDocente" not-null="true" />
+            </key>
+            <one-to-many class="com.insaj.entidades.Clases" />
+        </set>
+    </class>
+</hibernate-mapping>

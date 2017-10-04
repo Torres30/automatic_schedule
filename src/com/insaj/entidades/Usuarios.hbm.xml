@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Apr 19, 2017 9:28:25 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="com.insaj.entidades.Usuarios" table="usuarios" catalog="insaj">
+        <id name="idUsuario" type="java.lang.Integer">
+            <column name="idUsuario" />
+            <generator class="identity"></generator>
+        </id>
+        <many-to-one name="roles" class="com.insaj.entidades.Roles" fetch="select">
+            <column name="idRole" not-null="true" />
+        </many-to-one>
+        <property name="usuario" type="string">
+            <column name="Usuario" length="45" />
+        </property>
+        <property name="password" type="string">
+            <column name="Password" length="45" />
+        </property>
+        <property name="nombre" type="string">
+            <column name="Nombre" length="45" />
+        </property>
+        <set name="horarioses" table="horarios" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="idUser" not-null="true" />
+            </key>
+            <one-to-many class="com.insaj.entidades.Horarios" />
+        </set>
+    </class>
+</hibernate-mapping>

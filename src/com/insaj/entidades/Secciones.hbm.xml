@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Apr 19, 2017 9:28:25 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="com.insaj.entidades.Secciones" table="secciones" catalog="insaj">
+        <id name="idSeccion" type="java.lang.Integer">
+            <column name="idSeccion" />
+            <generator class="identity"></generator>
+        </id>
+        <property name="especialidad" type="string">
+            <column name="Especialidad" length="45" />
+        </property>
+        <property name="anio" type="string">
+            <column name="Anio" length="45" />
+        </property>
+        <property name="seccion" type="string">
+            <column name="Seccion" length="45" />
+        </property>
+        
+         <list name="Materiases" table="materiasporseccion" inverse="false" lazy="false">
+            <key>
+                <column name="idSeccion" not-null="true" />
+            </key>
+            <list-index column="idx"></list-index>
+            <many-to-many column="idMateria" class="com.insaj.entidades.Materias" />
+        </list>
+        
+        <set name="claseses" table="clases" inverse="true" lazy="false" fetch="select">
+            <key>
+                <column name="idSeccion" not-null="true" />
+            </key>
+            <one-to-many class="com.insaj.entidades.Clases" />
+        </set>
+    </class>
+</hibernate-mapping>
